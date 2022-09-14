@@ -1,8 +1,8 @@
-port module Main exposing (..)
+port module Main exposing (Model, Msg, main)
 
-import Browser exposing (..)
+import Browser
 import Html exposing (Html, div, main_, p, text)
-import Html.Attributes exposing (..)
+import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 import Parts.Button.View as PartsButton
 

@@ -1,6 +1,6 @@
 module Parts.Button.View exposing (view)
 
-import Html exposing (..)
+import Html exposing (Attribute, Html, button)
 import Html.Attributes exposing (class)
 import Parts.Helper exposing (classListToString)
 
@@ -24,4 +24,4 @@ classList =
 
 view : List (Attribute msg) -> List (Html msg) -> Html msg
 view attributes childrens =
-    Html.button (List.append [ class (classListToString classList) ] attributes) childrens
+    button (List.append [ class (classListToString classList) ] attributes) childrens

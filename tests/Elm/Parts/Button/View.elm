@@ -1,17 +1,17 @@
-module Elm.Parts.Button.View exposing (..)
+module Elm.Parts.Button.View exposing (suite)
 
 import Html
 import Html.Attributes as Attr
 import Html.Events as Events
 import Parts.Button.View exposing (view)
-import Test exposing (..)
+import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector as Selector
 
 
 type Msg
-    = Click String
+    = Click
 
 
 suite : Test

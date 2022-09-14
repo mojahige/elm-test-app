@@ -1,4 +1,4 @@
-module Parts.Helper exposing (..)
+module Parts.Helper exposing (classListToString)
 
 import List.Unique as Unique
 
