@@ -1,13 +1,28 @@
-import "./style.css";
 import { Elm } from "./elm/Main.elm";
 
-const app = Elm.Main?.init({
-  node: document.querySelector("#app"),
-  flags: "🐶",
-});
+function main(target: Element) {
+  return Elm.Main?.init({
+    node: target,
+    flags: "🐶",
+  });
+}
 
-app?.ports.confirm?.subscribe((message: string) => {
-  const answer = confirm(message);
+function subscribe(app: App) {
+  app.ports.confirm?.subscribe((message: string) => {
+    const answer = confirm(message);
 
-  app.ports.receiveAnswer?.send(answer);
-});
+    app.ports.receiveAnswer?.send(answer);
+  });
+}
+
+export function start() {
+  const target = document.querySelector("#app");
+
+  if (!target) {
+    return;
+  }
+
+  const app = main(target);
+
+  app && subscribe(app);
+}
