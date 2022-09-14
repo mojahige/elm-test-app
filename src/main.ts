@@ -6,8 +6,8 @@ const app = Elm.Main!.init({
   flags: "🐶",
 });
 
-app.ports.confirm.subscribe((message: string) => {
+app.ports.confirm!.subscribe((message: string) => {
   const answer = confirm(message);
 
-  app.ports.receiveAnswer.send(answer);
+  app.ports.receiveAnswer!.send(answer);
 });
