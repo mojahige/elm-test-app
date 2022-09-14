@@ -1,5 +1,5 @@
 type InitArgs = {
-  node: ReturnType<typeof document.querySelector>;
+  node: HTMLElement | Element;
   flags?: unknown;
 };
 type App = {
