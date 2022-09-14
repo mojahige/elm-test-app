@@ -2,15 +2,19 @@ type InitArgs = {
   node: ReturnType<typeof document.querySelector>;
   flags?: unknown;
 };
-
-type InitReturn = {
-  ports: any;
+type App = {
+  ports: {
+    [key: string]: {
+      subscribe: (args: any) => void;
+      send: (args: any) => void;
+    };
+  };
 };
 
 declare module "*.elm" {
   export const Elm: {
     [key: string]: {
-      init: (args: InitArgs) => InitReturn;
+      init: (args: InitArgs) => App;
     };
   };
 }
