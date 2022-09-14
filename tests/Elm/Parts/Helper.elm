@@ -7,7 +7,7 @@ import Test exposing (Test, describe, test)
 
 suite : Test
 suite =
-    describe "Parts.HelperTests module"
+    describe "Parts.Helper module"
         [ describe "Parts.Helper.classListToString"
             [ test "CSS クラス名が格納された配列が空白で区切られた文字列に変換される" <|
                 \_ ->
