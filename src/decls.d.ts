@@ -5,8 +5,10 @@ type InitArgs = {
 type App = {
   ports: {
     [key: string]: {
+      /* eslint-disable @typescript-eslint/no-explicit-any */
       subscribe: (args: any) => void;
       send: (args: any) => void;
+      /* eslint-enable @typescript-eslint/no-explicit-any */
     };
   };
 };
