@@ -1,9 +1,9 @@
-module Elm.Parts.Button.View exposing (suite)
+module Elm.Parts.Button.Module exposing (suite)
 
 import Html
 import Html.Attributes as Attr
 import Html.Events as Events
-import Parts.Button.View exposing (view)
+import Parts.Button.Module exposing (view)
 import Test exposing (Test, describe, test)
 import Test.Html.Event as Event
 import Test.Html.Query as Query
@@ -16,8 +16,8 @@ type Msg
 
 suite : Test
 suite =
-    describe "Parts.Button.ViewTests module"
-        [ describe "Parts.Button.ViewTests button"
+    describe "Parts.Button.Module"
+        [ describe "Parts.Button.Module view"
             [ test "指定したテキストが表示される" <|
                 \_ ->
                     view [] [ Html.text "foo" ]

@@ -1,4 +1,4 @@
-module Parts.Button.View exposing (view)
+module Parts.Button.Module exposing (view)
 
 import Html exposing (Attribute, Html, button)
 import Html.Attributes exposing (class)
