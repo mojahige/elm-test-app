@@ -2,8 +2,10 @@ port module Main exposing (Model, Msg, main)
 
 import Browser
 import Features.Counter.Module as Counter
-import Html exposing (Html, div, main_, p, text)
+import Html exposing (Html, div, h1, h2, main_, p, section, text)
 import Html.Attributes exposing (class)
+import Html.Events exposing (onClick)
+import Parts.Button.Module as Button
 
 
 main : Program String Model Msg
@@ -86,11 +88,12 @@ subscriptions _ =
 view : Model -> Html Msg
 view model =
     main_ []
-        [ div []
-            [ largeText ("flags " ++ model.message)
-            , largeText (confirmAnswerToString model.confirmAnswer)
+        [ h1 [ class "text-center text-6xl font-bold" ] [ text "Elm app" ]
+        , div [ class "flex flex-col gap-6 mt-8" ]
+            [ viewSection "Flags test" [ p [] [ text ("flags = " ++ model.message) ] ]
+            , viewSection "Ports test" [ p [] [ text ("confirm result = " ++ confirmAnswerToString model.confirmAnswer) ], Button.view [ class "mt-6", onClick Confirm ] [ text "confirm" ] ]
+            , viewSection "Other module test" [ Counter.view model.counter |> Html.map Counter ]
             ]
-        , Counter.view model.counter |> Html.map Counter
         ]
 
 
@@ -108,6 +111,12 @@ confirmAnswerToString maybeBool =
             "No answer"
 
 
-largeText : String -> Html Msg
-largeText textContent =
-    p [ class "text-center text-4xl font-bold" ] [ text textContent ]
+viewSection : String -> List (Html Msg) -> Html Msg
+viewSection heading childrens =
+    section []
+        [ h2 [ class "text-center text-2xl font-bold" ]
+            [ text heading ]
+        , div
+            [ class "text-center mt-2" ]
+            childrens
+        ]

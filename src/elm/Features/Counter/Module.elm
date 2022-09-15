@@ -40,8 +40,8 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ p [ class "text-center text-4xl font-bold" ] [ text (String.fromInt model.count) ]
-        , div [ class "flex justify-center gap-4" ]
+        [ p [ class "text-center text-2xl font-bold" ] [ text (String.fromInt model.count) ]
+        , div [ class "flex justify-center gap-4 mt-2" ]
             [ PartsButton.view [ onClick Decrement ] [ text "-" ]
             , PartsButton.view [ onClick Increment ] [ text "+" ]
             ]
